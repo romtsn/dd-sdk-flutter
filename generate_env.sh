@@ -17,6 +17,7 @@ dotEnvFiles=(
   "packages/datadog_tracking_http_client/example/.env"
   "packages/datadog_webview_tracking/example/.env"
   "examples/simple_example/.env"
+  "examples/session_replay_example/.env"
   "test_apps/stress_test/.env"
 )
 
@@ -63,7 +64,7 @@ END
 done 
 
 pushd examples/native-hybrid-app/android/app/src/main/res/
-mkdir raw
+mkdir -p raw
 tee ./raw/dd_config.json > /dev/null << END
 {
   "client_token": "$DD_CLIENT_TOKEN",
@@ -72,7 +73,7 @@ tee ./raw/dd_config.json > /dev/null << END
 END
 popd
 
-pushd examples/native-hybrid-app/ios/iOS\ Flutter\ Hybrid\ Example
+pushd examples/native-hybrid-app/ios/HybridSessionReplayExample
 tee ./ddog_config.plist > /dev/null << END
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
